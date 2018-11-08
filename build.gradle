@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+repositories {
+	jcenter()
+}
+
+sourceCompatibility = 10
+targetCompatibility = 10
+compileJava.options.encoding = 'UTF-8'
+
+
+dependencies {
+	compile 'junit:junit:4.12'
+}
+
+
+task zip(type: Zip) {
+	from projectDir
+
+	include 'build.gradle'
+
+	include 'src/main/java/patterns/observer/*.java'
+	include 'src/main/java/patterns/observer/javafx/*.java'
+	include 'src/main/java/patterns/observer/sensor/*.java'
+}
